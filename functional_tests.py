@@ -2,6 +2,7 @@ from selenium import webdriver
 from selenium.webdriver import ActionChains
 
 import unittest
+import time
 
 class CVTest(unittest.TestCase):
     def setUp(self):
@@ -24,6 +25,7 @@ class CVTest(unittest.TestCase):
         self.assertIn('CV', [btn.text for btn in self.browser.find_elements_by_class_name('btn')])
         cv_button = self.browser.find_element_by_link_text('CV')
         ActionChains(self.browser).click(cv_button).perform()
+        time.sleep(1)
         self.assertEqual(self.browser.current_url, "http://127.0.0.1:8000/cv")
 
         # He can see all the sections of his cv including his work experience,
