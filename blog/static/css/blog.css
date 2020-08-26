@@ -25,20 +25,9 @@ html {
     margin-top: 20%;
 }
 
-#tagline, #tagline a, #tagline a:visited, #tagline a:active {
-    color: #375964;
-    font-size: 44pt;
-    text-decoration: none;
-    float: right;
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    float: left;
-}
-
 h2, h2  a, h2 a:visited, h2 a:active, h2 a:hover {
     font-family: 'Oswald', sans-serif;
     font-weight: 500;
-    color: #828282;
     color: #375964;
     text-decoration: none;
 }
@@ -69,6 +58,14 @@ h2, h2  a, h2 a:visited, h2 a:active, h2 a:hover {
 
 .btn.selected:hover {
     background-color: #fa202e;
+}
+
+#add-post {
+    width: 20%;
+    border: 1px solid #fa202e;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 24px;
 }
 
 .date {
