@@ -73,6 +73,7 @@ h2, h2  a, h2 a:visited, h2 a:active, h2 a:hover {
 
 .date {
     color: #828282;
+    margin-bottom: 70px;
 }
 
 .save {
@@ -87,9 +88,6 @@ h2, h2  a, h2 a:visited, h2 a:active, h2 a:hover {
     width: 100%;
 }
 
-.post {
-    margin-bottom: 70px;
-}
 
 .post h2 a, .post h2 a:visited {
     color: #000000;
