@@ -7,7 +7,11 @@
                 <p>published: {{ post.published_date }}</p>
             </div>
             <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
+            {% if post.text|length < 300 %}
+                <p>{{ post.text|linebreaksbr }}</p>
+            {% else %}
+                <p>{{ post.text|linebreaksbr|truncatechars:300 }}</p>
+            {% endif %}
         </div>
     {% endfor %}
 {% endblock %}
