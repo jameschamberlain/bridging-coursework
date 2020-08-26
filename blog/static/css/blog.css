@@ -79,6 +79,10 @@ h2, h2  a, h2 a:visited, h2 a:active, h2 a:hover {
     float: right;
 }
 
+#blog-posts-container {
+    margin-top: 3%;
+}
+
 .post-form textarea, .post-form input {
     width: 100%;
 }

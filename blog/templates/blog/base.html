@@ -1,7 +1,7 @@
 {% load static %}
 <html>
     <head>
-        <title>James' blog</title>
+        <title>James Chamberlain</title>
 
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,12 +14,12 @@
                 <div class="col-2">
                     <h2><a href="/">james</a></h2>
                 </div>
-                <div class="col-1 offset-4" >
+                <div class="col-1 offset-5" >
                     <a class="btn unselected" href="/">About me</a>
                 </div>
                 
                 <div class="col-1">
-                    <a class="btn selected" href="">Blog</a>
+                    <a class="btn selected" href="/blog">Blog</a>
                 </div>
                 <div class="col-1">
                     <a class="btn unselected" href="">CV</a>
@@ -34,7 +34,7 @@
                     {% load static %}
                     <img src="{% static 'media/writing.svg' %}" class="img-fluid" id="cover-image" alt="Person coding">
                 </div>
-                <div class="col-6">
+                <div class="col-6" id="blog-posts-container">
                     {% block content %}
                     {% endblock %}
                 </div>

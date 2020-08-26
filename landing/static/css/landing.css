@@ -74,3 +74,17 @@ h2, h2  a, h2 a:visited, h2 a:active, h2 a:hover {
 .btn.selected:hover {
     background-color: #fa202e;
 }
+
+footer {
+    width: 100%;
+    margin: auto;
+    bottom: 0%;
+}
+
+footer a, footer a:visited, footer a:active, footer a:hover {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #375964;
+    text-decoration: none;
+}
