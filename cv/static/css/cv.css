@@ -1,0 +1,57 @@
+html {
+    overflow-x: hidden;
+    overflow-y: overlay;
+}
+
+.container {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+}
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    height: 80%;
+}
+
+#header {
+    margin-top: 0;
+    padding: 32px 16px 32px 40px;
+}
+
+h2, h2  a, h2 a:visited, h2 a:active, h2 a:hover {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    color: #828282;
+    color: #375964;
+    text-decoration: none;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.btn {
+    width: 100%;
+    border-radius: 30px;
+    color: #375964;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: #fd2f3d;
+    color: #ffffff;
+}
+
+.btn.selected {
+    background-color: #ff4f5a;
+    color: #ffffff;
+}
+
+.btn.selected:hover {
+    background-color: #fa202e;
+}

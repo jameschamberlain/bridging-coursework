@@ -31,13 +31,22 @@ class EditCVTest(unittest.TestCase):
         # He can see that cv is in the title of the page
         self.assertIn('CV', self.browser.title)
 
-        # He notices the navigation bar at the top
+        # He notices the navigation bar at the top and that the cv heading is selected
         nav_buttons = self.browser.find_elements_by_class_name('btn')
         self.assertEqual(len(nav_buttons), 3)
+        selected_nav_button = self.browser.find_element_by_class_name('selected')
+        self.assertEqual(selected_nav_button.text, 'CV')
 
         # He can see all the sections of his cv including his work experience,
         # education, projects, and skills
-        # work_experience_header_text = self.browser.find_element_by_id('')
+        work_experience_header_text = self.browser.find_element_by_id('work-experience').text
+        self.assertEqual(work_experience_header_text, "Work Experience")
+        work_experience_header_text = self.browser.find_element_by_id('education').text
+        self.assertEqual(work_experience_header_text, "Education")
+        work_experience_header_text = self.browser.find_element_by_id('projects').text
+        self.assertEqual(work_experience_header_text, "Projects")
+        work_experience_header_text = self.browser.find_element_by_id('skills').text
+        self.assertEqual(work_experience_header_text, "Skills")
 
         # He decides to add a new project and clicks the edit button next to the projects section
         self.fail('Finish the test!')

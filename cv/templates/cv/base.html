@@ -1,11 +1,35 @@
+{% load static %}
 <html>
     <head>
         <title>CV | James Chamberlain</title>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Oswald" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/cv.css' %}">
     </head>
 
     <body>
-        <a class="btn"></a>
-        <a class="btn"></a>
-        <a class="btn"></a>
+        <div class="container">
+            <div class="row" id="header">
+                <div class="col-2">
+                    <h2><a href="/">james</a></h2>
+                </div>
+                <div class="col-1 offset-5" >
+                    <a class="btn unselected" href="/">About me</a>
+                </div>
+                
+                <div class="col-1">
+                    <a class="btn unselected" href="/blog">Blog</a>
+                </div>
+                <div class="col-1">
+                    <a class="btn selected" href="/cv">CV</a>
+                </div>
+            </div>
+            <h3 id="work-experience">Work Experience</h3>
+            <h3 id="education">Education</h3>
+            <h3 id="projects">Projects</h3>
+            <h3 id="skills">Skills</h3>
+        </div>
     </body>
 </html>
