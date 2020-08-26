@@ -31,11 +31,16 @@ class EditCVTest(unittest.TestCase):
         # He can see that cv is in the title of the page
         self.assertIn('CV', self.browser.title)
 
+        # He notices the navigation bar at the top
+        nav_buttons = self.browser.find_elements_by_class_name('btn')
+        self.assertEqual(len(nav_buttons), 3)
+
         # He can see all the sections of his cv including his work experience,
         # education, projects, and skills
-        self.fail('Finish the test!')
+        # work_experience_header_text = self.browser.find_element_by_id('')
 
         # He decides to add a new project and clicks the edit button next to the projects section
+        self.fail('Finish the test!')
 
         # He adds a project title: "Portfolio website"
 
