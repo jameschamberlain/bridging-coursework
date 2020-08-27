@@ -60,7 +60,7 @@ h2, h2  a, h2 a:visited, h2 a:active, h2 a:hover {
     background-color: #fa202e;
 }
 
-#add-post {
+.edit {
     width: 20%;
     border: 1px solid #fa202e;
     text-align: center;

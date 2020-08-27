@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-6" id="blog-posts-container">
                     {% if user.is_authenticated %}
-                        <a href="{% url 'post_new' %}" class="btn" id="add-post">Add new post</a>
+                        <a href="{% url 'post_new' %}" class="btn edit">Add new post</a>
                     {% endif %}
                     {% block content %}
                     {% endblock %}

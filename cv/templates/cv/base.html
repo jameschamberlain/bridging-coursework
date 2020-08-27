@@ -26,10 +26,15 @@
                     <a class="btn selected" href="/cv">CV</a>
                 </div>
             </div>
-            <h3 id="work-experience">Work Experience</h3>
-            <h3 id="education">Education</h3>
-            <h3 id="projects">Projects</h3>
-            <h3 id="skills">Skills</h3>
+            <div class="row content">
+                <h3 id="work-experience">Work Experience</h3>
+                {% for project in projects %}
+                    <h4>{{ project.name }}</h4>
+                    {% endfor %}
+                <h3 id="education">Education</h3>
+                <h3 id="projects">Projects</h3>
+                <h3 id="skills">Skills</h3>
+            </div>
         </div>
     </body>
 </html>

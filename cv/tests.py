@@ -90,15 +90,15 @@ class ProjectTest(TestCase):
 class SkillTest(TestCase):
 
     def test_saving_and_retrieving_skills(self):
-        skill_1 = WorkExperience()
+        skill_1 = Skill()
         skill_1.name = 'Kotlin'
         skill_1.save()
 
-        skill_2 = WorkExperience()
+        skill_2 = Skill()
         skill_2.name = 'Python'
         skill_2.save()
 
-        saved_skills = WorkExperience.objects.all()
+        saved_skills = Skill.objects.all()
         self.assertEqual(saved_skills.count(), 2)
 
         first_saved_skill = saved_skills[0]
