@@ -1,5 +1,8 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
+
+from django.test import Client
 
 import unittest
 import time
@@ -13,7 +16,15 @@ class EditCVTest(unittest.TestCase):
 
     def test_can_update_cv(self):
         # James has decided to update his cv on his website. He goes
-        # to the website homepage
+        # to the website admin page and then visits the homepage
+        self.browser.get('http://127.0.0.1:8000/admin/')
+        username_input_box = self.browser.find_element_by_name('username')
+        username_input_box.send_keys('james')
+        password_input_box = self.browser.find_element_by_name('password')
+        password_input_box.send_keys('tottenham99')
+        password_input_box.send_keys(Keys.ENTER)
+        time.sleep(3)
+
         self.browser.get('http://127.0.0.1:8000')
 
         # He notices the page title and header mention his name
@@ -25,14 +36,14 @@ class EditCVTest(unittest.TestCase):
         self.assertIn('CV', [btn.text for btn in self.browser.find_elements_by_class_name('btn')])
         cv_button = self.browser.find_element_by_link_text('CV')
         ActionChains(self.browser).click(cv_button).perform()
-        time.sleep(1)
+        time.sleep(2)
         self.assertEqual(self.browser.current_url, "http://127.0.0.1:8000/cv/")
 
         # He can see that cv is in the title of the page
         self.assertIn('CV', self.browser.title)
 
         # He notices the navigation bar at the top and that the cv heading is selected
-        nav_buttons = self.browser.find_elements_by_class_name('btn')
+        nav_buttons = self.browser.find_elements_by_class_name('nav')
         self.assertEqual(len(nav_buttons), 3)
         selected_nav_button = self.browser.find_element_by_class_name('selected')
         self.assertEqual(selected_nav_button.text, 'CV')
@@ -48,8 +59,10 @@ class EditCVTest(unittest.TestCase):
         work_experience_header_text = self.browser.find_element_by_id('skills').text
         self.assertEqual(work_experience_header_text, "Skills")
 
-        # He decides to add a new project and clicks the plus button next to the projects section
-        self.assertTrue(self.browser.find_element_by_id('add-project'), True)
+        # He decides to add a new project and clicks the button next to the projects section
+        add_work_experience_btn = self.browser.find_element_by_id('add-project')
+        ActionChains(self.browser).click(add_work_experience_btn).perform()
+        time.sleep(2)
 
         # He adds a project title: "Portfolio website"
         self.fail('Finish the test!')

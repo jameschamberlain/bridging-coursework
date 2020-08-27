@@ -11,7 +11,7 @@ def cv(request):
     return render(request, 'cv/base.html')
 
 class CVView(ListView):
-    context_object_name = 'cv_lsit'
+    context_object_name = 'cv_list'
     template_name = 'cv/cv_list.html'
     queryset = WorkExperience.objects.all()
 
