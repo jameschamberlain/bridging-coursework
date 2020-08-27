@@ -27,25 +27,8 @@
                 </div>
             </div>
             <div class="row content">
-                <h3 id="work-experience">Work Experience</h3>
-                {% for experience in object_list %}
-                    <h5>{{ experience.company }}</h5>
-                    <p>{{ experience.details }}</p>
-                {% endfor %}
-                <h3 id="education">Education</h3>
-                {% for education in educations %}
-                    <h5>{{ education.institution }}</h5>
-                    <p>{{ education.details }}</p>
-                {% endfor %}
-                <h3 id="projects">Projects</h3>
-                {% for project in projects %}
-                    <h5>{{ project.name }}</h5>
-                    <p>{{ project.details }}</p>
-                {% endfor %}
-                <h3 id="skills">Skills</h3>
-                {% for skill in skills %}
-                    <h5>{{ skill.name }}</h5>
-                {% endfor %}
+                {% block content %}
+                {% endblock %}
             </div>
         </div>
     </body>

@@ -60,3 +60,28 @@ h2, h2  a, h2 a:visited, h2 a:active, h2 a:hover {
 .btn.selected:hover {
     background-color: #fa202e;
 }
+
+.edit {
+    width: 15%;
+    border: 1px solid #fa202e;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    margin-bottom: 24px;
+}
+
+h3 {
+    color: #ff4f5a;
+    margin-top: 24px;
+}
+
+h5 {
+    width: 100%;
+    text-align: center;
+}
+
+p {
+    width: 100%;
+    text-align: center;
+}

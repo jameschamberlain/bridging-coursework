@@ -49,7 +49,7 @@ class EditCVTest(unittest.TestCase):
         self.assertEqual(work_experience_header_text, "Skills")
 
         # He decides to add a new project and clicks the plus button next to the projects section
-        add_project_button = self.browser.find_element_by_id('add-project')
+        self.assertTrue(self.browser.find_element_by_id('add-project'), True)
 
         # He adds a project title: "Portfolio website"
         self.fail('Finish the test!')

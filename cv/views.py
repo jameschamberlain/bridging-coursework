@@ -12,7 +12,7 @@ def cv(request):
 
 class CVView(ListView):
     context_object_name = 'cv_lsit'
-    template_name = 'cv/base.html'
+    template_name = 'cv/cv_list.html'
     queryset = WorkExperience.objects.all()
 
     def get_context_data(self, **kwargs):
