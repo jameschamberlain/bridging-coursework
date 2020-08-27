@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class WorkExperience(models.Model):
+    role = models.CharField(max_length=50)
     company = models.CharField(max_length=50)
     details = models.TextField()
 
