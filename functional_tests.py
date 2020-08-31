@@ -19,38 +19,37 @@ class CVTest(unittest.TestCase):
         username_input_box = self.browser.find_element_by_name('username')
         username_input_box.send_keys('james')
         password_input_box = self.browser.find_element_by_name('password')
-        password_input_box.send_keys('tottenham99')
+        password_input_box.send_keys('passwordfortesting')
         password_input_box.send_keys(Keys.ENTER)
         time.sleep(3)
 
     def test_cv_layout_and_styling(self):
-        # James has decided to view his cv on his website. He goes
-        # to the website admin page and then visits the homepage
-        self.login()
+        # Someone has decided to view James' cv on his website. They go
+        # to the website homepage
         self.browser.get('http://127.0.0.1:8000')
 
-        # He notices the page title and header mention his name
+        # They notice the page title and header mention his name
         self.assertIn('James', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h2').text
         self.assertIn('james', header_text)
 
-        # He sees a button to go to the cv page and clicks it
+        # They see a button to go to the cv page and click it
         self.assertIn('CV', [btn.text for btn in self.browser.find_elements_by_class_name('btn')])
         cv_button = self.browser.find_element_by_link_text('CV')
         ActionChains(self.browser).click(cv_button).perform()
         time.sleep(2)
         self.assertEqual(self.browser.current_url, "http://127.0.0.1:8000/cv/")
 
-        # He can see that cv is in the title of the page
+        # They can see that cv is in the title of the page
         self.assertIn('CV', self.browser.title)
 
-        # He notices the navigation bar at the top and that the cv heading is selected
+        # They notice the navigation bar at the top and that the cv heading is selected
         nav_buttons = self.browser.find_elements_by_class_name('nav-bar')
         self.assertEqual(len(nav_buttons), 3)
         selected_nav_button = self.browser.find_element_by_class_name('selected')
         self.assertEqual(selected_nav_button.text, 'CV')
 
-        # He can see all the sections of his cv including his work experience,
+        # They can see all the sections of his cv including his work experience,
         # education, projects, and skills
         work_experience_header_text = self.browser.find_element_by_id('work-experience').text
         self.assertEqual(work_experience_header_text, "Work Experience")
