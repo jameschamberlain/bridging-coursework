@@ -73,19 +73,23 @@ h2, h2  a, h2 a:visited, h2 a:active, h2 a:hover {
     margin-bottom: 70px;
 }
 
-.save {
-    float: right;
-}
-
 #blog-posts-container {
     margin-top: 3%;
-}
-
-.post-form textarea, .post-form input {
-    width: 100%;
 }
 
 
 .post h2 a, .post h2 a:visited {
     color: #000000;
+}
+
+p {
+    margin-right: 8%;
+}
+
+input, textarea {
+    width: 100%;
+}
+
+#post-detail {
+    margin-bottom: 80px;
 }

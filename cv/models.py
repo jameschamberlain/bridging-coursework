@@ -4,15 +4,15 @@ from django.db import models
 class WorkExperience(models.Model):
     role = models.CharField(max_length=50)
     company = models.CharField(max_length=50)
-    details = models.TextField()
+    description = models.TextField()
 
 class Education(models.Model):
     institution = models.CharField(max_length=50)
-    details = models.TextField()
+    description = models.TextField()
 
 class Project(models.Model):
     name = models.CharField(max_length=50)
-    details = models.TextField()
+    description = models.TextField()
 
 class Skill(models.Model):
     name = models.CharField(max_length=50)

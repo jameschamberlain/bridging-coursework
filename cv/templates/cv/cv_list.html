@@ -8,10 +8,10 @@
             {% for experience in object_list %}
                 <h5>{{ experience.role }}</h5>
                 <h6>{{ experience.company }}</h6>
-                <p>{{ experience.details|linebreaksbr }}</p>
+                <p>{{ experience.description|linebreaksbr }}</p>
             {% endfor %}
             {% if user.is_authenticated %}
-                    <a href="{% url 'work_experience_new' %}" class="btn edit">Add new work experience</a>
+                    <a href="{% url 'work_experience_new' %}" id="add-work-experience" class="btn edit">Add new work experience</a>
             {% endif %}
         </div>
 
@@ -19,7 +19,7 @@
             <h3 id="projects">Projects</h3>
             {% for project in projects %}
                 <h5>{{ project.name }}</h5>
-                <p>{{ project.details|linebreaksbr }}</p>
+                <p>{{ project.description|linebreaksbr }}</p>
             {% endfor %}
             {% if user.is_authenticated %}
                     <a href="{% url 'project_new' %}" id="add-project" class="btn edit">Add new project</a>
@@ -33,10 +33,10 @@
         <h3 id="education">Education</h3>
         {% for education in educations %}
             <h5>{{ education.institution }}</h5>
-            <p>{{ education.details|linebreaksbr }}</p>
+            <p>{{ education.description|linebreaksbr }}</p>
         {% endfor %}
         {% if user.is_authenticated %}
-                <a href="{% url 'education_new' %}" class="btn edit">Add new education</a>
+                <a href="{% url 'education_new' %}" id="add-education" class="btn edit">Add new education</a>
         {% endif %}
     </div>
 
@@ -46,7 +46,7 @@
             <h5 class="skill">{{ skill.name }}</h5>
         {% endfor %}
         {% if user.is_authenticated %}
-                <a href="{% url 'skill_new' %}" class="btn edit">Add new skill</a>
+                <a href="{% url 'skill_new' %}" id="add-skill" class="btn edit">Add new skill</a>
         {% endif %}
     </div>
 </div>

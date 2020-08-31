@@ -81,7 +81,36 @@ h3 {
 }
 
 h5.skill {
-    margin: 80px;
-    display: inline;
+    margin-left: 40px;
+    margin-right: 40px;
+    display: inline-block;
     white-space: nowrap;
+    padding: 10px;
+}
+
+.form-view {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
+.form-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #ff4f5a;
+}
+
+input, textarea {
+    width: 100%;
+}
+
+.save {
+    width: 30%;
+    border: 1px solid #fa202e;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 40px;
 }

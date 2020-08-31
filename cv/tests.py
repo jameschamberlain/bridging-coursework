@@ -18,12 +18,12 @@ class WorkEperienceModelTest(TestCase):
     def test_saving_and_retrieving_work_experiences(self):
         experience_1 = WorkExperience()
         experience_1.company = 'Webmoco'
-        experience_1.details = 'I did some work experience there'
+        experience_1.description = 'I did some work experience there'
         experience_1.save()
 
         experience_2 = WorkExperience()
         experience_2.company = 'Dough and Brough'
-        experience_2.details = 'I worked there over summer 2018'
+        experience_2.description = 'I worked there over summer 2018'
         experience_2.save()
 
         saved_experiences = WorkExperience.objects.all()
@@ -31,11 +31,11 @@ class WorkEperienceModelTest(TestCase):
 
         first_saved_experience = saved_experiences[0]
         self.assertEqual(first_saved_experience.company, 'Webmoco')
-        self.assertEqual(first_saved_experience.details, 'I did some work experience there')
+        self.assertEqual(first_saved_experience.description, 'I did some work experience there')
 
         second_saved_experience = saved_experiences[1]
         self.assertEqual(second_saved_experience.company, 'Dough and Brough')
-        self.assertEqual(second_saved_experience.details, 'I worked there over summer 2018')
+        self.assertEqual(second_saved_experience.description, 'I worked there over summer 2018')
 
 
 class EducationModelTest(TestCase):
@@ -43,12 +43,12 @@ class EducationModelTest(TestCase):
     def test_saving_and_retrieving_educations(self):
         education_1 = Education()
         education_1.institution = 'Trinity'
-        education_1.details = 'This was my secondary school'
+        education_1.description = 'This was my secondary school'
         education_1.save()
 
         education_2 = Education()
         education_2.institution = 'University of birmingham'
-        education_2.details = 'This is my university'
+        education_2.description = 'This is my university'
         education_2.save()
 
         saved_educations = Education.objects.all()
@@ -56,11 +56,11 @@ class EducationModelTest(TestCase):
 
         first_saved_education = saved_educations[0]
         self.assertEqual(first_saved_education.institution, 'Trinity')
-        self.assertEqual(first_saved_education.details, 'This was my secondary school')
+        self.assertEqual(first_saved_education.description, 'This was my secondary school')
 
         second_saved_education = saved_educations[1]
         self.assertEqual(second_saved_education.institution, 'University of birmingham')
-        self.assertEqual(second_saved_education.details, 'This is my university')
+        self.assertEqual(second_saved_education.description, 'This is my university')
 
 
 class ProjectTest(TestCase):
@@ -68,12 +68,12 @@ class ProjectTest(TestCase):
     def test_saving_and_retrieving_projects(self):
         project_1 = Project()
         project_1.name = 'Football Team Tracker'
-        project_1.details = 'An Android app for tracking your football team.'
+        project_1.description = 'An Android app for tracking your football team.'
         project_1.save()
 
         project_2 = Project()
         project_2.name = 'Portfolio'
-        project_2.details = 'A website to showcase my CV and a blog.'
+        project_2.description = 'A website to showcase my CV and a blog.'
         project_2.save()
 
         saved_projects = Project.objects.all()
@@ -81,11 +81,11 @@ class ProjectTest(TestCase):
 
         first_saved_project = saved_projects[0]
         self.assertEqual(first_saved_project.name, 'Football Team Tracker')
-        self.assertEqual(first_saved_project.details, 'An Android app for tracking your football team.')
+        self.assertEqual(first_saved_project.description, 'An Android app for tracking your football team.')
 
         second_saved_project = saved_projects[1]
         self.assertEqual(second_saved_project.name, 'Portfolio')
-        self.assertEqual(second_saved_project.details, 'A website to showcase my CV and a blog.')
+        self.assertEqual(second_saved_project.description, 'A website to showcase my CV and a blog.')
 
 
 class SkillTest(TestCase):

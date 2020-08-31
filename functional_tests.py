@@ -62,6 +62,87 @@ class CVTest(unittest.TestCase):
         self.assertEqual(work_experience_header_text, "Skills")
 
 
+    def test_can_update_work_experience_on_cv(self):
+        # James has decided to update his work experiences on his cv on his website. He goes
+        # to the website admin page and then visits his cv
+        self.login()
+        self.browser.get('http://127.0.0.1:8000/cv/')
+        self.assertEqual(self.browser.current_url, "http://127.0.0.1:8000/cv/")
+
+        # He decides to add a new work experience and clicks the button next to the work experience section
+        add_work_experience_button = self.browser.find_element_by_id('add-work-experience')
+        self.browser.execute_script("arguments[0].scrollIntoView();", add_work_experience_button)
+        time.sleep(1)
+        ActionChains(self.browser).click(add_work_experience_button).perform()
+        time.sleep(2)
+        self.assertEqual(self.browser.current_url, "http://127.0.0.1:8000/cv/new-work-experience")
+
+        # He adds a company role: "Test developer"
+        role_inputbox = self.browser.find_element_by_id('id_role')
+        role_inputbox.send_keys('Test developer')
+
+        # He adds a company name: "Tests R Us"
+        name_inputbox = self.browser.find_element_by_id('id_company')
+        name_inputbox.send_keys('Tests R Us')
+        
+        # He adds a description: "Test description for my test work at Tests R Us."
+        description_inputbox = self.browser.find_element_by_id('id_description')
+        description_inputbox.send_keys('Test description for my test work at Tests R Us.')
+
+        # When he hits the 'add' button, the page updates, and now the new project can be seen
+        # in the projects section
+        save_button = self.browser.find_element_by_class_name('save')
+        ActionChains(self.browser).click(save_button).perform()
+        time.sleep(2)
+
+        # He can see his new project on his CV
+        heading_elements = self.browser.find_elements_by_tag_name('h5')
+        self.assertIn('Test developer', [element.text for element in heading_elements])
+        
+        small_heading_elements = self.browser.find_elements_by_tag_name('h6')
+        self.assertIn('Tests R Us', [element.text for element in small_heading_elements])
+
+        text_elements = self.browser.find_elements_by_tag_name('p')
+        self.assertIn('Test description for my test work at Tests R Us.', [element.text for element in text_elements])
+
+
+    def test_can_update_education_on_cv(self):
+        # James has decided to update his education on his cv on his website. He goes
+        # to the website admin page and then visits his cv
+        self.login()
+        self.browser.get('http://127.0.0.1:8000/cv/')
+        self.assertEqual(self.browser.current_url, "http://127.0.0.1:8000/cv/")
+
+        # He decides to add a new education and clicks the button next to the education section
+        add_education_button = self.browser.find_element_by_id('add-education')
+        self.browser.execute_script("arguments[0].scrollIntoView();", add_education_button)
+        time.sleep(1)
+        ActionChains(self.browser).click(add_education_button).perform()
+        time.sleep(2)
+        self.assertEqual(self.browser.current_url, "http://127.0.0.1:8000/cv/new-education")
+
+        # He adds an institution name: "Test University"
+        institution_inputbox = self.browser.find_element_by_id('id_institution')
+        institution_inputbox.send_keys('Test University')
+
+        # He adds a description: "Testing is fun at Test University."
+        description_inputbox = self.browser.find_element_by_id('id_description')
+        description_inputbox.send_keys('Testing is fun at Test University.')
+
+        # When he hits the 'add' button, the page updates, and now the new education can be seen
+        # in the education section
+        save_button = self.browser.find_element_by_class_name('save')
+        ActionChains(self.browser).click(save_button).perform()
+        time.sleep(2)
+
+        # He can see his new education on his CV
+        heading_elements = self.browser.find_elements_by_tag_name('h5')
+        self.assertIn('Test University', [element.text for element in heading_elements])
+
+        text_elements = self.browser.find_elements_by_tag_name('p')
+        self.assertIn('Testing is fun at Test University.', [element.text for element in text_elements])
+
+
     def test_can_update_projects_on_cv(self):
         # James has decided to update his projects on his cv on his website. He goes
         # to the website admin page and then visits his cv
@@ -77,13 +158,13 @@ class CVTest(unittest.TestCase):
         time.sleep(2)
         self.assertEqual(self.browser.current_url, "http://127.0.0.1:8000/cv/new-project")
 
-        # He adds a project title: "Portfolio website"
-        project_title_inputbox = self.browser.find_element_by_id('id_name')
-        project_title_inputbox.send_keys('Test project')
+        # He adds a project name: "Portfolio website"
+        name_inputbox = self.browser.find_element_by_id('id_name')
+        name_inputbox.send_keys('Test project')
 
         # He adds a description: "Portfolio website created using Django."
-        project_details_inputbox = self.browser.find_element_by_id('id_details')
-        project_details_inputbox.send_keys('Test details for the test project.')
+        description_inputbox = self.browser.find_element_by_id('id_description')
+        description_inputbox.send_keys('Test description for the test project.')
 
         # When he hits the 'add' button, the page updates, and now the new project can be seen
         # in the projects section
@@ -92,13 +173,42 @@ class CVTest(unittest.TestCase):
         time.sleep(2)
 
         # He can see his new project on his CV
-        project_title_elements = self.browser.find_elements_by_tag_name('h5')
-        self.assertIn('Test project', [element.text for element in project_title_elements])
+        heading_elements = self.browser.find_elements_by_tag_name('h5')
+        self.assertIn('Test project', [element.text for element in heading_elements])
 
-        project_details_elements = self.browser.find_elements_by_tag_name('p')
-        self.assertIn('Test details for the test project.', [element.text for element in project_details_elements])
+        text_elements = self.browser.find_elements_by_tag_name('p')
+        self.assertIn('Test description for the test project.', [element.text for element in text_elements])
 
-        # James is satisfied and closes his browser window
+
+    def test_can_update_skills_on_cv(self):
+        # James has decided to update his skills on his cv on his website. He goes
+        # to the website admin page and then visits his cv
+        self.login()
+        self.browser.get('http://127.0.0.1:8000/cv/')
+        self.assertEqual(self.browser.current_url, "http://127.0.0.1:8000/cv/")
+
+        # He decides to add a new skill and clicks the button next to the skills section
+        add_skill_button = self.browser.find_element_by_id('add-skill')
+        self.browser.execute_script("arguments[0].scrollIntoView();", add_skill_button)
+        time.sleep(1)
+        ActionChains(self.browser).click(add_skill_button).perform()
+        time.sleep(2)
+        self.assertEqual(self.browser.current_url, "http://127.0.0.1:8000/cv/new-skill")
+
+        # He adds a skill name: "Testing"
+        name_inputbox = self.browser.find_element_by_id('id_name')
+        name_inputbox.send_keys('Testing')
+
+        # When he hits the 'add' button, the page updates, and now the new skill can be seen
+        # in the skills section
+        save_button = self.browser.find_element_by_class_name('save')
+        ActionChains(self.browser).click(save_button).perform()
+        time.sleep(2)
+
+        # He can see his new skill on his CV
+        heading_elements = self.browser.find_elements_by_tag_name('h5')
+        self.assertIn('Testing', [element.text for element in heading_elements])
+
 
 if __name__ == '__main__':
     unittest.main()

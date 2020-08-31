@@ -8,17 +8,17 @@ from cv.models import Skill
 class WorkExperienceForm(forms.ModelForm):
     class Meta:
         model = WorkExperience
-        fields = ('role', 'company', 'details',)
+        fields = ('role', 'company', 'description',)
         
 class EducationForm(forms.ModelForm):
     class Meta:
         model = Education
-        fields = ('institution', 'details',)
+        fields = ('institution', 'description',)
         
 class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ('name', 'details',)
+        fields = ('name', 'description',)
         
 class SkillForm(forms.ModelForm):
     class Meta:

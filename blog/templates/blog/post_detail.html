@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-    <div class="post">
+    <div id="post-detail">
         {% if user.is_authenticated %}
             <a class="btn edit" href="{% url 'post_edit' pk=post.pk %}">Edit post</a>
         {% endif %}
