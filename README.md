@@ -4,9 +4,9 @@ Bridging Coursework
 A portfolio website built using Django. This was part of my bridging coursework for my university over the summer of 2020.
 
 <div>
-  <img src="/screenshots/about_me.png" alt="About me screenshot" width="30%"/>
-  <img src="/screenshots/blog.png" alt="Blog screenshot" width="30%"/>
-  <img src="/screenshots/cv.png" alt="CV screenshot" width="30%"/>
+  <img src="/screenshots/about_me.png" alt="About me screenshot" width="50%"/>
+  <img src="/screenshots/blog.png" alt="Blog screenshot" width="50%"/>
+  <img src="/screenshots/cv.png" alt="CV screenshot" width="50%"/>
 </div>
 
 The specification for the coursework is below:
